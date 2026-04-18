@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --ts --tailwind --app --no-eslint --no-src-dir --import-alias \"@/*\" --use-npm)",
+      "Bash(mkdir -p C:/Users/User/Desktop/projects/tik/data)",
+      "Bash(mv \"C:/Users/User/Desktop/projects/tik/Copy of Table1.columns\" \"C:/Users/User/Desktop/projects/tik/data/\")",
+      "Bash(mv \"C:/Users/User/Desktop/projects/tik/Copy of Table1.csv\" \"C:/Users/User/Desktop/projects/tik/data/\")"
+    ]
+  }
+}
