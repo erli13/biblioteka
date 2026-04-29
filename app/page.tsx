@@ -589,7 +589,7 @@ function Catalog() {
             {[
               { label: "Libra", value: data?.total.toLocaleString() ?? "…" },
               { label: "Vendndodhje", value: "Dollapi & Rafte" },
-              { label: "Qasje", value: "Falas" },
+              { label: "Kostoja", value: "Falas" },
             ].map(({ label, value }) => (
               <div key={label}>
                 <p className="text-xl font-black text-white">{value}</p>
