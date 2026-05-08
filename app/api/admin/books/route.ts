@@ -51,10 +51,14 @@ export async function GET(request: NextRequest) {
 }
 
 export async function DELETE(request: NextRequest) {
-  const { ids } = await request.json() as { ids: number[] };
+  const { ids } = await request.json() as { ids: unknown[] };
   if (!Array.isArray(ids) || ids.length === 0) {
     return NextResponse.json({ error: "No ids provided" }, { status: 400 });
   }
-  await prisma.book.deleteMany({ where: { id: { in: ids } } });
+  const numericIds = ids.filter((id): id is number => typeof id === "number" && Number.isInteger(id));
+  if (numericIds.length === 0) {
+    return NextResponse.json({ error: "Invalid ids" }, { status: 400 });
+  }
+  await prisma.book.deleteMany({ where: { id: { in: numericIds } } });
   return NextResponse.json({ deleted: ids.length });
 }

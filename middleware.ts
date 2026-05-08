@@ -6,7 +6,10 @@ export function middleware(request: NextRequest) {
   if (authHeader) {
     const [scheme, encoded] = authHeader.split(" ");
     if (scheme === "Basic" && encoded) {
-      const [user, pass] = atob(encoded).split(":");
+      const decoded = atob(encoded);
+      const sep = decoded.indexOf(":");
+      const user = sep === -1 ? decoded : decoded.slice(0, sep);
+      const pass = sep === -1 ? "" : decoded.slice(sep + 1);
       if (
         user === process.env.ADMIN_USER &&
         pass === process.env.ADMIN_PASSWORD

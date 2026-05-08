@@ -51,3 +51,7 @@ next-env.d.ts
 CLAUDE.md
 AGENTS.md
 
+# local utility scripts and logs
+local_ai_cleaner.js
+scrape-log.txt
+
